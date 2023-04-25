@@ -30,6 +30,8 @@ def suyunChinck():
             print('按钮不可点击，已签到？？')
             #获取元素值
             result = driver.find_element('xpath', '//*[@id="kt_subheader"]/div/div[2]/a').text
+            #获取剩余流量
+            left = driver.find_element('xpath', '//*[@id="kt_content"]/div[2]/div/div[2]/div[2]/div/div[1]/div/div/div').text
            
     except:
         pass
@@ -38,7 +40,7 @@ def suyunChinck():
     time.sleep(3)
     print(result)
     #发送邮件
-    ret = mail(result,my_sender,my_user,my_pass)
+    ret = mail(result,left,my_sender,my_user,my_pass)
     if ret:
         print("邮件发送成功")
     else:
