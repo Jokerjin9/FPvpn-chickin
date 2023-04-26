@@ -1,6 +1,6 @@
 import time
 
-from GoodJob import *
+from Method import *
 
 username = sys.argv[1] 
 password = sys.argv[2] 
