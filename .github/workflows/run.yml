@@ -47,5 +47,5 @@ jobs:
 #           python ./suyunChinck.py ${{ secrets.SYMAIL }} ${{ secrets.SYPASSWORD }} ${{ secrets.QQSENDER }} ${{ secrets.QQPS }} ${{ secrets.QQRECEIVE }}
           
       - name: 'sjs'
-        run: python ./sjs.py ${{ secrets.SJSNAME }} ${{ secrets.SJSPASSWORD }}
+        run: python ./sjs.py ${{ secrets.SJSNAME }} ${{ secrets.SJSPASSWORD }} ${{ secrets.QQSENDER }} ${{ secrets.QQPS }} ${{ secrets.QQRECEIVE }}
           
