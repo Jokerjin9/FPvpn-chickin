@@ -6,7 +6,11 @@ from Method import *
 import time
 
 username = sys.argv[1] # 登录账号
-password = sys.argv[2] # 登录密码= 
+password = sys.argv[2] # 登录密码
+
+my_sender = sys.argv[3]  # 填写发信人的邮箱账号
+my_pass = sys.argv[4]  # 发件人邮箱授权码
+my_user = sys.argv[5]  # 收件人邮箱账号
 
 def sjs():
     header = {
@@ -45,13 +49,19 @@ def sjs():
     recat = s.get(recat_url,headers=header,cookies=cookies)
     soup = BeautifulSoup(recat.text, 'html.parser') # 解析网页内容
     dom = etree.HTML(str(soup))
-    print(dom.xpath('//*[@id="wp"]/div[2]/div[1]/div[1]/div/div[1]')[0].text)
+    result = dom.xpath('//*[@id="wp"]/div[2]/div[1]/div[1]/div/div[1]')[0].text
     #查看车票
     cp = s.get(chepiao,headers=header,cookies = cookies)
     soupcp = BeautifulSoup(cp.text, 'html.parser') # 解析网页内容
     domcp = etree.HTML(str(soupcp))
-    print(domcp.xpath('//*[@id="psts"]/ul/li[4]/text()'))
-
+    left = domcp.xpath('//*[@id="psts"]/ul/li[4]/text()')
+    #发送邮件
+    ret = mail(result,left,my_sender,my_user,my_pass)
+    if ret:
+        print("邮件发送成功")
+    else:
+        print("邮件发送失败")
+    return result
 
 
 if __name__ == '__main__':
