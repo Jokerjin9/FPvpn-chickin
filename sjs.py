@@ -28,7 +28,7 @@ def sjs():
       "password":password
 
     }
-    chepiao = 'https://xsijishe.com/home.php?mod=space&uid=176473&do=profile&from=space'
+    chepiao = 'https://xsijishe.com/home.php?mod=space&uid=174999&do=profile&from=space'
     recat_url = 'https://xsijishe.com/k_misign-sign.html'
     #chick_url = 'https://xsijishe.com/plugin.php?id=k_misign:sign&operation=qiandao&formhash=6bbe7f28&format=empty&inajax=1&ajaxtarget=JD_sign'
     login_url = 'https://xsijishe.net/member.php?mod=logging&action=login&loginsubmit=yes&handlekey=login&loginhash=Lx8kI&inajax=1'
