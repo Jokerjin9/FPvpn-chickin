@@ -84,7 +84,7 @@ def sjs():
     topic = 'sjs签到'
     print(left)
     #发送邮件
-    ret = mail(topic，result,left,my_sender,my_user,my_pass)
+    ret = mail(topic,result,left,my_sender,my_user,my_pass)
     if ret:
         print("邮件发送成功")
     else:
