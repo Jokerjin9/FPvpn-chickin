@@ -79,7 +79,8 @@ def sjs():
     soupcp = BeautifulSoup(cp.text, 'html.parser') # 解析网页内容
     domcp = etree.HTML(str(soupcp))
     left1 = domcp.xpath('//*[@id="psts"]/ul/li[4]')
-    left = '车票余额：' + left
+    a = left1[0] 
+    left = '车票余额：' + a
     topic = 'sjs签到'
     print(left)
     #发送邮件
