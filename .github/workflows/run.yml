@@ -40,11 +40,11 @@ jobs:
       - name: Prepare chromedriver
         uses: nanasess/setup-chromedriver@v1
         
-      - name: 'suyun'
-        run: |
-          # sudo cp -p ./chromedriver /usr/bin/
-          # chmod -R 777 /usr/bin/chromedriver
-          python ./suyunChinck.py ${{ secrets.SYMAIL }} ${{ secrets.SYPASSWORD }} ${{ secrets.QQSENDER }} ${{ secrets.QQPS }} ${{ secrets.QQRECEIVE }}
+#       - name: 'suyun'
+#         run: |
+#           # sudo cp -p ./chromedriver /usr/bin/
+#           # chmod -R 777 /usr/bin/chromedriver
+#           python ./suyunChinck.py ${{ secrets.SYMAIL }} ${{ secrets.SYPASSWORD }} ${{ secrets.QQSENDER }} ${{ secrets.QQPS }} ${{ secrets.QQRECEIVE }}
           
       - name: 'sjs'
         run: python ./sjs.py ${{ secrets.SJSNAME }} ${{ secrets.SJSPASSWORD }} ${{ secrets.QQSENDER }} ${{ secrets.QQPS }} ${{ secrets.QQRECEIVE }}
