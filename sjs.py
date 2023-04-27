@@ -20,6 +20,8 @@ def sjs():
     ajax_header = {
         'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36',
         'X-Requested-With': 'XMLHttpRequest'
+        'referer': 'https://xsijishe.com/k_misign-sign.html'
+        'Referrer Policy': 'strict-origin-when-cross-origin'
         }
     date = {
       "username":username,
