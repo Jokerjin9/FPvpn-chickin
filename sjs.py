@@ -28,7 +28,7 @@ def sjs():
       "password":password
 
     }
-    chepiao = 'https://xsijishe.com/home.php?mod=space&uid=174999'
+    chepiao = 'https://xsijishe.com/home.php?mod=space&uid=176473&do=profile&from=space'
     recat_url = 'https://xsijishe.com/k_misign-sign.html'
     #chick_url = 'https://xsijishe.com/plugin.php?id=k_misign:sign&operation=qiandao&formhash=6bbe7f28&format=empty&inajax=1&ajaxtarget=JD_sign'
     login_url = 'https://xsijishe.net/member.php?mod=logging&action=login&loginsubmit=yes&handlekey=login&loginhash=Lx8kI&inajax=1'
@@ -72,15 +72,18 @@ def sjs():
     recat = s.get(recat_url,headers=header,cookies=cookies)
     soup = BeautifulSoup(recat.text, 'html.parser') # 解析网页内容
     dom = etree.HTML(str(soup))
-    result = dom.xpath('//*[@id="wp"]/div[2]/div[1]/div[1]/div/div[1]')[0].text
+    result1 = dom.xpath('//*[@id="wp"]/div[2]/div[1]/div[1]/div/div[1]')[0].text
+    result = '签到状态：' + result
     #查看车票
     cp = s.get(chepiao,headers=header,cookies = cookies)
     soupcp = BeautifulSoup(cp.text, 'html.parser') # 解析网页内容
     domcp = etree.HTML(str(soupcp))
-    left = domcp.xpath('//*[@id="psts"]/ul/li[4]')
+    left1 = domcp.xpath('//*[@id="psts"]/ul/li[4]')
+    left = '车票余额：' + left
+    topic = 'sjs签到'
     print(left)
     #发送邮件
-    ret = mail(result,left,my_sender,my_user,my_pass)
+    ret = mail(topic，result,left,my_sender,my_user,my_pass)
     if ret:
         print("邮件发送成功")
     else:
