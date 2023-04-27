@@ -42,6 +42,7 @@ def sjs():
     time.sleep(3)
     # 将 cookies 传递给 Selenium WebDriver    使用selenium点击签到
     driver = get_web_driver()
+    driver.get(recat_url)
     for cookie in cookies:
         driver.add_cookie({'name': cookie, 'value': cookies[cookie]})
 
