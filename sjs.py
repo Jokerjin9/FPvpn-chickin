@@ -17,12 +17,12 @@ def sjs():
         'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36'
     }
 
-    ajax_header = {
-        'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36',
-        'X-Requested-With': 'XMLHttpRequest',
-        'referer': 'https://xsijishe.com/k_misign-sign.html',
-        'Referrer Policy': 'strict-origin-when-cross-origin'
-        }
+#     ajax_header = {
+#         'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36',
+#         'X-Requested-With': 'XMLHttpRequest',
+#         'referer': 'https://xsijishe.com/k_misign-sign.html',
+#         'Referrer Policy': 'strict-origin-when-cross-origin'
+#         }
     date = {
       "username":username,
       "password":password
@@ -30,7 +30,7 @@ def sjs():
     }
     chepiao = 'https://xsijishe.com/home.php?mod=space&uid=174999'
     recat_url = 'https://xsijishe.com/k_misign-sign.html'
-    chick_url = 'https://xsijishe.com/plugin.php?id=k_misign:sign&operation=qiandao&formhash=6bbe7f28&format=empty&inajax=1&ajaxtarget=JD_sign'
+    #chick_url = 'https://xsijishe.com/plugin.php?id=k_misign:sign&operation=qiandao&formhash=6bbe7f28&format=empty&inajax=1&ajaxtarget=JD_sign'
     login_url = 'https://xsijishe.net/member.php?mod=logging&action=login&loginsubmit=yes&handlekey=login&loginhash=Lx8kI&inajax=1'
     s = requests.Session()
     r = s.post(url=login_url,headers=header,data= date)
@@ -40,13 +40,33 @@ def sjs():
     cookies = requests.utils.dict_from_cookiejar(cookiejar)
 
     time.sleep(3)
+    # 将 cookies 传递给 Selenium WebDriver    使用selenium点击签到
+    driver = get_web_driver()
+    for cookie in cookies:
+        driver.add_cookie({'name': cookie, 'value': cookies[cookie]})
+
+    # 现在可以使用 Selenium WebDriver 访问登录后的页面
+    driver.get(recat_url)
+    time.sleep(5)
     print('开始签到')
     try:
-        chick = s.get(chick_url,headers=ajax_header,cookies =cookies)
-        print(chick.status_code)
+        driver.find_element('xpath', '//*[@id="JD_sign"]').click()
+         time.sleep(2)
 
     except:
         pass
+    finally:
+        driver.quit()
+
+  ############################################################由于ajax无法直接使用接口签到#####################
+#     print('开始签到')
+#     try:
+#         chick = s.get(chick_url,headers=ajax_header,cookies =cookies)
+#         print(chick.status_code)
+
+#     except:
+#         pass
+
     # 确认状态
     recat = s.get(recat_url,headers=header,cookies=cookies)
     soup = BeautifulSoup(recat.text, 'html.parser') # 解析网页内容
