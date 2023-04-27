@@ -51,7 +51,7 @@ def sjs():
     print('开始签到')
     try:
         driver.find_element('xpath', '//*[@id="JD_sign"]').click()
-         time.sleep(2)
+        time.sleep(2)
 
     except:
         pass
