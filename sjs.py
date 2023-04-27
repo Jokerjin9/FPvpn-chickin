@@ -73,12 +73,12 @@ def sjs():
     soup = BeautifulSoup(recat.text, 'html.parser') # 解析网页内容
     dom = etree.HTML(str(soup))
     result1 = dom.xpath('//*[@id="wp"]/div[2]/div[1]/div[1]/div/div[1]')[0].text
-    result = '签到状态：' + result
+    result = '签到状态：' + result1
     #查看车票
     cp = s.get(chepiao,headers=header,cookies = cookies)
     soupcp = BeautifulSoup(cp.text, 'html.parser') # 解析网页内容
     domcp = etree.HTML(str(soupcp))
-    left1 = domcp.xpath('//*[@id="psts"]/ul/li[4]')
+    left1 = domcp.xpath('//*[@id="psts"]/ul/li[4]/text()')
     a = left1[0] 
     left = '车票余额：' + a
     topic = 'sjs签到'
