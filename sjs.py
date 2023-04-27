@@ -77,7 +77,8 @@ def sjs():
     cp = s.get(chepiao,headers=header,cookies = cookies)
     soupcp = BeautifulSoup(cp.text, 'html.parser') # 解析网页内容
     domcp = etree.HTML(str(soupcp))
-    left = domcp.xpath('//*[@id="psts"]/ul/li[4]/text()')
+    left = domcp.xpath('//*[@id="psts"]/ul/li[4]')
+    print(left)
     #发送邮件
     ret = mail(result,left,my_sender,my_user,my_pass)
     if ret:
