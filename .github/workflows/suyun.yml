@@ -46,9 +46,4 @@ jobs:
           # chmod -R 777 /usr/bin/chromedriver
           python ./suyunChinck.py ${{ secrets.SYMAIL }} ${{ secrets.SYPASSWORD }} ${{ secrets.QQSENDER }} ${{ secrets.QQPS }} ${{ secrets.QQRECEIVE }}
           
-      - name: 'sjs one'
-        run: python ./sjs.py ${{ secrets.SJSNAME }} ${{ secrets.SJSPASSWORD }} ${{ secrets.QQSENDER }} ${{ secrets.QQPS }} ${{ secrets.QQRECEIVE }}
-      
-      - name: 'sjs two'
-        run: python ./sjs.py ${{ secrets.SJSGMAIL }} ${{ secrets.SJSGMPS }} ${{ secrets.QQSENDER }} ${{ secrets.QQPS }} ${{ secrets.QQRECEIVE }}
-       
+
