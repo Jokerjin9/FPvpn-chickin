@@ -41,7 +41,7 @@ def suyunChinck():
         driver.quit()
     time.sleep(3)
     topic = '速云签到'
-    print(result)
+   
     #发送邮件
     ret = mail(topic,result,left,my_sender,my_user,my_pass)
     if ret:
