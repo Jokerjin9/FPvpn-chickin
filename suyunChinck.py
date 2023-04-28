@@ -14,6 +14,9 @@ def suyunChinck():
         driver = get_web_driver()
         driver.get("https://yooo.one/user")
         time.sleep(8)
+        #验证是否为真人
+        driver.find_element('xpath', '//*[@id="challenge-stage"]/div/label/input').click()
+        time.sleep(3)
         driver.find_element('xpath', '//*[@id="email"]').send_keys(username)
         time.sleep(2)
         driver.find_element('xpath', '//*[@id="password"]').send_keys(password)
