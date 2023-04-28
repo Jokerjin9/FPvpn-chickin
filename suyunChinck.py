@@ -12,8 +12,8 @@ my_user = sys.argv[5]  # 收件人邮箱账号
 def suyunChinck():
     try:
         driver = get_web_driver()
-        driver.get("https://yooo.one/auth/login")
-        time.sleep(3)
+        driver.get("https://yooo.one/user")
+        time.sleep(8)
         driver.find_element('xpath', '//*[@id="email"]').send_keys(username)
         time.sleep(2)
         driver.find_element('xpath', '//*[@id="password"]').send_keys(password)
@@ -31,6 +31,7 @@ def suyunChinck():
             #获取元素值
             result1 = driver.find_element('xpath', '//*[@id="kt_subheader"]/div/div[2]/a').text
             result = '签到状态：' + result1
+            print(result)
             #获取剩余流量
             left1 = driver.find_element('xpath', '//*[@id="kt_content"]/div[2]/div/div[2]/div[2]/div/div[1]/div/div/div').text
             left = '流量剩余：' + left1
