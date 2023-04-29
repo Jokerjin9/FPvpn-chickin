@@ -14,19 +14,20 @@ def suyunChinck():
         driver = get_web_driver()
         driver.get("https://yooo.one/user")
         time.sleep(12)
-        #验证是否为真人
+        print('#验证是否为真人')
         try:
             driver.find_element('xpath', '//*[@id="challenge-stage"]/div/label/input').click()
             time.sleep(6)
         except NoSuchElementException:
             print('cf人机验证未找到点击元素')
-        #开始登录
+        print('#开始登录')
         driver.find_element('xpath', '//*[@id="email"]').send_keys(username)
         time.sleep(2)
         driver.find_element('xpath', '//*[@id="password"]').send_keys(password)
         time.sleep(2)
         driver.find_element('xpath', '//*[@id="login_submit"]').click()
         time.sleep(5)
+        print('开始签到')
         try:
             #签到
             driver.find_element('xpath', '//*[@id="checkin"]').click()
