@@ -20,7 +20,9 @@ def suyunChinck():
             time.sleep(6)
         except:
             print('cf人机验证未找到点击元素')
-        print('#开始登录')              
+        print('#开始登录')
+        print(driver.page_source)
+        print(driver.current_url)
         driver.find_element('xpath', '//*[@id="email"]').send_keys(username)
         time.sleep(2) 
         driver.find_element('xpath', '//*[@id="password"]').send_keys(password)
