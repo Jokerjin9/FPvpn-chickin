@@ -12,7 +12,7 @@ my_user = sys.argv[5]  # 收件人邮箱账号
 def suyunChinck():
     try:
         driver = get_web_driver()
-        driver.get("https://yooo.one/user")
+        driver.get("https://yooo.one/auth/login")
         time.sleep(12)
         print('#验证是否为真人')
         try:
@@ -20,11 +20,11 @@ def suyunChinck():
             time.sleep(6)
         except:
             print('cf人机验证未找到点击元素')
-        print('#开始登录')
+        print('#开始登录')              
         driver.find_element('xpath', '//*[@id="email"]').send_keys(username)
-        time.sleep(2)
+        time.sleep(2) 
         driver.find_element('xpath', '//*[@id="password"]').send_keys(password)
-        time.sleep(2)
+        time.sleep(2)    
         driver.find_element('xpath', '//*[@id="login_submit"]').click()
         time.sleep(5)
         print('开始签到')
