@@ -18,7 +18,7 @@ def suyunChinck():
         try:
             driver.find_element('xpath', '//*[@id="challenge-stage"]/div/label/input').click()
             time.sleep(6)
-        except NoSuchElementException:
+        except:
             print('cf人机验证未找到点击元素')
         print('#开始登录')
         driver.find_element('xpath', '//*[@id="email"]').send_keys(username)
@@ -32,7 +32,7 @@ def suyunChinck():
             #签到
             driver.find_element('xpath', '//*[@id="checkin"]').click()
             time.sleep(2)
-        except NoSuchElementException:
+        except:
             print('签到元素不可用')
         finally: 
             #获取元素值
