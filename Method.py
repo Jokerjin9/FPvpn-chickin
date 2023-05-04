@@ -58,6 +58,39 @@ def mail(topic,result,left,my_sender,my_user,my_pass):
 
 
 
+def hejing():
+    header = {
+        'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36'
+    }
+
+    date = {
+
+            'identity': '1275955680@qq.com',
+            'password': 'hejing123456'
+    }
+    login_url = 'https://www.heywhale.com/api/auth/loginByPassword'
+    passage_url = 'https://www.heywhale.com/home/user/level/6451b1d208bd92b2ea5e3b92/level'
+    r = requests.Session()
+    lg = r.post(login_url,headers=header,data=date)
+    print(lg.text)
+    # 获取登录成功后的cookie信息
+    cookiejar = r.cookies
+    # 把cookie转换成字典
+    cookies = requests.utils.dict_from_cookiejar(cookiejar)
+    # cookies = r.cookies.get_dict()
+    print(cookies)
+    time.sleep(2)
+    passage = r.get(passage_url,headers=header,cookies=cookies)
+     #查看情况
+    # soup = BeautifulSoup(passage.text, 'html.parser') # 解析网页内容
+    # print(soup)
+    # dom = etree.HTML(str(soup))
+    # b = dom.xpath('//*[@id="app-root"]/div[2]/div/div/div/section/div/div[1]/div/div[3]/div[3]/div[2]/span[2]')
+    # jf = b[0]
+    # print('目前积分：' + jf )
+
+
+
 
 
 #验证码处理
