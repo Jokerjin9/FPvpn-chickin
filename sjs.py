@@ -83,6 +83,8 @@ def sjs():
     left = '车票余额：' + a
     topic = 'sjs签到'
     print(left)
+    x = hejing()
+   
     #发送邮件
     ret = mail(topic,result,left,my_sender,my_user,my_pass)
     if ret:
