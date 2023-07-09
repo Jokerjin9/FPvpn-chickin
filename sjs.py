@@ -73,7 +73,7 @@ def sjs():
     # soup = BeautifulSoup(recat.text, 'html.parser') # 解析网页内容
     # dom = etree.HTML(str(soup))
     # result1 = dom.xpath('//*[@id="wp"]/div[2]/div[1]/div[1]/div/div[1]')[0].text
-    # result = '签到状态：' + result1
+    result = '签到状态：未启用（元素无法识别）' 
 
     
     #查看车票
