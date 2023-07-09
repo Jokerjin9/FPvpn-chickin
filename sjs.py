@@ -69,11 +69,13 @@ def sjs():
 #         pass
 
     # 确认状态
-    recat = s.get(recat_url,headers=header,cookies=cookies)
-    soup = BeautifulSoup(recat.text, 'html.parser') # 解析网页内容
-    dom = etree.HTML(str(soup))
-    result1 = dom.xpath('//*[@id="wp"]/div[2]/div[1]/div[1]/div/div[1]')[0].text
-    result = '签到状态：' + result1
+    # recat = s.get(recat_url,headers=header,cookies=cookies)
+    # soup = BeautifulSoup(recat.text, 'html.parser') # 解析网页内容
+    # dom = etree.HTML(str(soup))
+    # result1 = dom.xpath('//*[@id="wp"]/div[2]/div[1]/div[1]/div/div[1]')[0].text
+    # result = '签到状态：' + result1
+
+    
     #查看车票
     cp = s.get(chepiao,headers=header,cookies = cookies)
     soupcp = BeautifulSoup(cp.text, 'html.parser') # 解析网页内容
